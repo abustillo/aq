@@ -12,13 +12,7 @@ zuul:
   ignored-services: '*'
   ignoredPatterns: /**/api/**
   routes:
-    account-service: /account/**
-    payment-service: /payment/**
-    inventory-service: /inventory/**
-    order-service: /order/**
-    user-service: /user/**
-    catalog-service: /catalog/**
-    shopping-cart-service: /shoppingcart/**
+    user-query-service: /user/**
 eureka:
   instance:
     prefer-ip-address: true
@@ -36,13 +30,7 @@ zuul:
   ignored-services: '*'
   ignoredPatterns: /**/api/**
   routes:
-    account-service: /account/**
-    payment-service: /payment/**
-    inventory-service: /inventory/**
-    order-service: /order/**
-    user-service: /user/**
-    catalog-service: /catalog/**
-    shopping-cart-service: /shoppingcart/**
+    user-query-service: /user/**
 eureka:
   instance:
     prefer-ip-address: true
