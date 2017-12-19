@@ -1,0 +1,41 @@
+server:
+  port: 9000
+eureka:
+  instance:
+    leaseRenewalIntervalInSeconds: 10
+  client:
+    registryFetchIntervalSeconds: 5
+    serviceUrl:
+      defaultZone: http://discovery1:8761/eureka/,http://discovery2:8762/eureka
+
+spring:
+  application:
+    name: admin-service
+  boot:
+    admin:
+      context-path: /admin
+    auth:
+      name: admin
+      password: admin
+    notify:
+      mail:
+        to: alvaro.bustillo@aquanima.com
+  mail:
+    host: 10.100.10.210
+    port: 25
+security.user.name: admin
+security.user.password: admin
+---
+spring:
+  profiles: docker
+  boot:
+    admin:
+      context-path: /admin
+management.security.enabled: false
+eureka:
+  instance:
+    leaseRenewalIntervalInSeconds: 10
+  client:
+    registryFetchIntervalSeconds: 5
+    serviceUrl:
+      defaultZone: http://discovery-service/eureka/
