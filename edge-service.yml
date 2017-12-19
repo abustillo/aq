@@ -1,6 +1,8 @@
 spring:
   profiles:
-    active: development
+    active: development   
+server:
+  port: 9999
 ---
 spring:
   profiles: development
