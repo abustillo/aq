@@ -34,11 +34,21 @@ logging:
  file: /opt/apps/logs/discovery1_service.log
 ---
 spring:
-  profiles: docker
+  profiles: docker1
 server:
   port: 8761
   client:
     serviceUrl:
-      defaultZone: http://${DOCKER_IP:192.168.99.100}:8761/eureka/
+      defaultZone: http://discovery-service:8761/eureka/,http://discovery-service-replica:8762/eureka
 logging:
- file: /opt/apps/logs/discovery_service.log
+ file: /opt/apps/logs/${HOSTNAME}.log
+---
+spring:
+  profiles: docker2
+server:
+  port: 8762
+  client:
+    serviceUrl:
+      defaultZone: http://discovery-service:8761/eureka/,http://discovery-service-replica:8762/eureka
+logging:
+ file: /opt/apps/logs/${HOSTNAME}.log
