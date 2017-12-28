@@ -3,3 +3,6 @@ info:
 logging:
   level:
     org.springframework.security: DEBUG
+management:
+  security:
+    enabled: false
