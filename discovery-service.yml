@@ -44,7 +44,7 @@ server:
     serviceUrl:
       defaultZone: http://discovery-service:8761/eureka/,http://discovery-service-replica:8762/eureka
 logging:
- file: /opt/apps/logs/${HOSTNAME}.log
+ file: /opt/apps/logs/discovery-service.log
 ---
 spring:
   profiles: docker2
@@ -54,4 +54,4 @@ server:
     serviceUrl:
       defaultZone: http://discovery-service:8761/eureka/,http://discovery-service-replica:8762/eureka
 logging:
- file: /opt/apps/logs/${HOSTNAME}.log
+ file: /opt/apps/logs/discovery-service-replica.log
