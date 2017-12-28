@@ -4,6 +4,9 @@ info:
 endpoints:
   shutdown:
     enabled: true
+management:
+  security:
+    enabled: false
 ---
 spring:
   profiles: local

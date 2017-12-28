@@ -3,6 +3,9 @@ spring:
     active: development
 server:
   port: 6262
+management:
+  security:
+    enabled: false
 ---
 spring:
   profiles: development

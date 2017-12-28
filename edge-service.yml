@@ -3,6 +3,9 @@ spring:
     active: development   
 server:
   port: 9999
+management:
+  security:
+    enabled: false
 ---
 spring:
   profiles: development
