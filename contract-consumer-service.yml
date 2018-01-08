@@ -1,4 +1,4 @@
-spring.profiles.active: development,docker1
+spring.profiles.active: docker1
 server:
  port: 9114
 spring:
