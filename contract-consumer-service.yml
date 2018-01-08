@@ -6,7 +6,7 @@ spring:
   name: contract-consumer-service
 ---
 spring:
-  profiles: development
+  profiles: docker1
   cloud:
     stream:
       bindings:
@@ -30,10 +30,6 @@ spring:
    url: jdbc:mysql://10.100.21.238:3306/queries
    username: root
    password: dbpass
-            
----
-spring:
-  profiles: docker1
 eureka:
   instance:
     hostname: docker1
