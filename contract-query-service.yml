@@ -1,4 +1,4 @@
-spring.profiles.active: development
+spring.profiles.active: docker1
 server:
  port: 9113
 spring:
@@ -6,7 +6,7 @@ spring:
   name: contract-query-service
 ---
 spring:
-  profiles: development
+  profiles: docker1
 
   jpa:
     properties:
