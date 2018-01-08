@@ -1,0 +1,33 @@
+spring.profiles.active: development
+server:
+ port: 9113
+spring:
+ application:
+  name: contract-query-service
+---
+spring:
+  profiles: development
+
+  jpa:
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL5Dialect
+    hibernate:
+      naming-strategy: org.hibernate.cfg.ImprovedNamingStrategy
+      ddl-auto: create-drop
+    show-sql: true
+  datasource:
+   url: jdbc:mysql://10.100.21.238:3306/queries
+   username: root
+   password: dbpass
+            
+eureka:
+  instance:
+    prefer-ip-address: true
+  client:
+    registerWithEureka: true
+    fetchRegistry: true
+    serviceUrl:
+      defaultZone: http://10.100.21.238:8761/eureka/
+logging:
+ file: /opt/apps/logs/contract-query.log

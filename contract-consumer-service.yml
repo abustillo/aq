@@ -1,0 +1,48 @@
+spring.profiles.active: development,docker1
+server:
+ port: 9114
+spring:
+ application:
+  name: contract-consumer-service
+---
+spring:
+  profiles: development
+  cloud:
+    stream:
+      bindings:
+        input:
+          destination: contractRequestTopic
+          content-type: application/json
+          group: contractRequestConsumer
+      kafka:
+        binder:
+          zkNodes: 10.100.21.238
+          brokers: 10.100.21.238
+  jpa:
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL5Dialect
+    hibernate:
+      naming-strategy: org.hibernate.cfg.ImprovedNamingStrategy
+      ddl-auto: create-drop
+    show-sql: true
+  datasource:
+   url: jdbc:mysql://10.100.21.238:3306/queries
+   username: root
+   password: dbpass
+            
+---
+spring:
+  profiles: docker1
+eureka:
+  instance:
+    hostname: docker1
+    prefer-ip-address: true  
+  client:
+    registerWithEureka: true
+    fetchRegistry: true
+    serviceUrl:
+      defaultZone: http://discovery-service:8761/eureka/,http://discovery-service-replica:8762/eureka/
+      
+logging:
+ file: /opt/apps/logs/contract-consumer.log

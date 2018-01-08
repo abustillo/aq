@@ -1,0 +1,86 @@
+server:
+  port: 8201
+spring:
+  application:
+    name: migration-contract-service
+  jpa:
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL5Dialect
+    hibernate:
+      naming-strategy: org.hibernate.cfg.ImprovedNamingStrategy
+      ddl-auto: create-drop
+    show-sql: true
+  datasource:
+   url: jdbc:mysql://10.100.21.238:3306/migration
+   username: root
+   password: dbpass
+  cloud:
+    stream:
+      bindings:
+        contractRequestChannel:
+          destination: contractRequestTopic
+          content-type: application/json
+      kafka:
+        binder:
+          zkNodes: 10.100.21.238
+          brokers: 10.100.21.238
+          defaultZkPort: 2181
+          defaultBrokerPort: 9092
+          
+talend:
+  url: http://10.100.21.7:8088
+  token: 3fd3a748c2e1261a
+logging:
+ file: /opt/apps/logs/migration.log
+eureka:
+ instance:
+   leaseRenewalIntervalInSeconds: 10
+ client:
+   registryFetchIntervalSeconds: 5
+   serviceUrl:
+     defaultZone: http://10.100.21.238:8761/eureka/
+management.security.enabled: false 
+---
+spring:
+  profiles: docker1
+  application:
+    name: migration-contract-service
+  jpa:
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL5Dialect
+    hibernate:
+      naming-strategy: org.hibernate.cfg.ImprovedNamingStrategy
+      ddl-auto: create-drop
+    show-sql: true
+  datasource:
+   url: jdbc:mysql://10.100.21.238:3306/migration
+   username: root
+   password: dbpass
+  cloud:
+    stream:
+      bindings:
+        contractRequestChannel:
+          destination: contractRequestTopic
+          content-type: application/json
+      kafka:
+        binder:
+          zkNodes: 10.100.21.238
+          brokers: 10.100.21.238
+          defaultZkPort: 2181
+          defaultBrokerPort: 9092
+          
+talend:
+  url: http://10.100.21.7:8088
+  token: 3fd3a748c2e1261a
+logging:
+ file: /opt/apps/logs/migration.log
+eureka:
+ instance:
+   leaseRenewalIntervalInSeconds: 10
+ client:
+   registryFetchIntervalSeconds: 5
+   serviceUrl:
+     defaultZone: http://10.100.21.238:8761/eureka/
+management.security.enabled: false
