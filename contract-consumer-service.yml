@@ -84,7 +84,7 @@ spring:
   cloud:
     stream:
       bindings:
-        input:
+        contractRequestChannel:
           destination: contractRequestTopic
           content-type: application/json
           group: contractRequestConsumer
