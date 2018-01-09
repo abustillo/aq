@@ -13,7 +13,6 @@ spring:
         input:
           destination: contractRequestTopic
           content-type: application/json
-          group: contractRequestConsumer
       kafka:
         binder:
           zkNodes: 10.100.21.238
@@ -50,7 +49,6 @@ spring:
         input:
           destination: contractRequestTopic
           content-type: application/json
-          group: contractRequestConsumer
       kafka:
         binder:
           zkNodes: 10.100.21.238
