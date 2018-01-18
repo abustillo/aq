@@ -10,8 +10,14 @@ spring:
   cloud:
     stream:
       bindings:
-        input:
+        contractRequestChannel:
           destination: contractRequestTopic
+          content-type: application/json
+        flowChannel:
+          destination: flowTopic
+          content-type: application/json
+        historialChannel:
+          destination: historialTopic
           content-type: application/json
       kafka:
         binder:
@@ -36,7 +42,7 @@ eureka:
     registerWithEureka: true
     fetchRegistry: true
     serviceUrl:
-      defaultZone: http://discovery-service:8761/eureka/,http://discovery-service-replica:8762/eureka/
+      defaultZone: http://10.100.21.238:8761/eureka/,http://10.100.21.238:8762/eureka/
       
 logging:
  file: /opt/apps/logs/contract-consumer.log
