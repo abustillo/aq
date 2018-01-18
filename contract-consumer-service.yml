@@ -72,7 +72,7 @@ eureka:
     registerWithEureka: true
     fetchRegistry: true
     serviceUrl:
-      defaultZone: http://discovery-service:8761/eureka/,http://discovery-service-replica:8762/eureka/
+      defaultZone: http://10.100.21.238:8761/eureka/,http://10.100.21.238:8762/eureka/
       
 logging:
  file: /opt/apps/logs/contract-consumer.log
