@@ -13,8 +13,6 @@ spring:
         flowChannel:
           destination: flowTopic
           content-type: application/json
-          consumer:
-              resetOffsets: true
         historialChannel:
           destination: historialTopic
           content-type: application/json
@@ -46,6 +44,7 @@ eureka:
       
 logging:
  file: /opt/apps/logs/contract-consumer.log
+spring.cloud.stream.kafka.binder.configuration.auto.offset.reset: earliest
 ---
 spring:
   profiles: docker2
