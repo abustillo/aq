@@ -10,9 +10,9 @@ spring:
   cloud:
     stream:
       bindings:
-        contractRequestChannel:
-          destination: contractRequestTopic
-          content-type: application/json
+#        contractRequestChannel:
+#          destination: contractRequestTopic
+#          content-type: application/json
         flowChannel:
           destination: flowTopic
           content-type: application/json
