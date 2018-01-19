@@ -10,15 +10,15 @@ spring:
   cloud:
     stream:
       bindings:
-#        contractRequestChannel:
-#          destination: contractRequestTopic
-#          content-type: application/json
         flowChannel:
           destination: flowTopic
           content-type: application/json
+          consumer:
+              resetOffsets: true
         historialChannel:
           destination: historialTopic
           content-type: application/json
+          
       kafka:
         binder:
           zkNodes: 10.100.21.238
