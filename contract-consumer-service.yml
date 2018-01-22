@@ -46,6 +46,7 @@ eureka:
 logging:
  file: /opt/apps/logs/contract-consumer.log
 spring.cloud.stream.kafka.binder.configuration.auto.offset.reset: earliest
+spring.cloud.stream.kafka.bindings.flowChannel.consumer.startOffset: earliest
 ---
 spring:
   profiles: docker2
