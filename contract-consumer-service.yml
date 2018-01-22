@@ -11,12 +11,13 @@ spring:
     stream:
       bindings:
         flowChannel:
-          destination: flowTopic
+          destination: flow-topic
           content-type: application/json
+          group: flow-topic
         historialChannel:
-          destination: historialTopic
+          destination: historial-topic
           content-type: application/json
-          
+          group: historial-consumer
       kafka:
         binder:
           zkNodes: 10.100.21.238
@@ -90,9 +91,9 @@ spring:
     stream:
       bindings:
         contractRequestChannel:
-          destination: contractRequestTopic
+          destination: cr-topic
           content-type: application/json
-          group: contractRequestConsumer
+          group: cr-consumer
       kafka:
         binder:
           zkNodes: 10.100.21.238
