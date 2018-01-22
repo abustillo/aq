@@ -13,7 +13,7 @@ spring:
         flowChannel:
           destination: flow-topic
           content-type: application/json
-          group: flow-topic
+          group: flow-consumer
         historialChannel:
           destination: historial-topic
           content-type: application/json
