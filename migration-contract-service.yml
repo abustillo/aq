@@ -13,27 +13,31 @@ spring:
       ddl-auto: create-drop
     show-sql: true
   datasource:
-   url: jdbc:mysql://10.100.21.238:3306/migration
+   url: jdbc:mysql://10.100.21.238:3306/migration?useSSL=true&requireSSL=true
    username: root
    password: dbpass
   cloud:
     stream:
       bindings:
         contractRequestChannel:
-          destination: contractRequestTopic
+          destination: cr-topic
           content-type: application/json
+          group: cr-consumer
         flowChannel:
-          destination: flowTopic
+          destination: flow-topic
           content-type: application/json
+          group: flow-consumer
         historialChannel:
-          destination: historialTopic
+          destination: historial-topic
           content-type: application/json
+          group: historial-consumer
       kafka:
         binder:
           zkNodes: 10.100.21.238
           brokers: 10.100.21.238
           defaultZkPort: 2181
           defaultBrokerPort: 9092
+          minPartitionCount: 3
           
 talend:
   url: http://10.100.21.7:8088
