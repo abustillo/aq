@@ -10,6 +10,10 @@ spring:
   cloud:
     stream:
       bindings:
+        contractRequestChannel:
+          destination: cr-topic
+          content-type: application/json
+          group: cr-consumer
         flowChannel:
           destination: flow-topic
           content-type: application/json

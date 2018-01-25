@@ -10,7 +10,7 @@ spring:
         dialect: org.hibernate.dialect.MySQL5Dialect
     hibernate:
       naming-strategy: org.hibernate.cfg.ImprovedNamingStrategy
-      ddl-auto: create-drop
+      ddl-auto: validate
     show-sql: true
   datasource:
    url: jdbc:mysql://10.100.21.238:3306/migration?useSSL=true&requireSSL=true
@@ -22,15 +22,12 @@ spring:
         contractRequestChannel:
           destination: cr-topic
           content-type: application/json
-          group: cr-consumer
         flowChannel:
           destination: flow-topic
           content-type: application/json
-          group: flow-consumer
         historialChannel:
           destination: historial-topic
           content-type: application/json
-          group: historial-consumer
       kafka:
         binder:
           zkNodes: 10.100.21.238
